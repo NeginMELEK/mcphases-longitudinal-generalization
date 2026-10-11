@@ -46,6 +46,8 @@ numpy
 pandas
 scipy
 scikit-learn
+```
+
 They can be installed with:
 
 ```bash
