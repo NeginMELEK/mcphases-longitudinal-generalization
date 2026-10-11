@@ -46,3 +46,44 @@ numpy
 pandas
 scipy
 scikit-learn
+They can be installed with:
+
+```bash
+pip install duckdb numpy pandas scipy scikit-learn
+```
+
+## Running the confirmatory analysis
+
+```bash
+python mcphases_frozen_analysis.py --data "<PATH_TO_MCPHASES_DATA>"
+```
+
+The script creates a new analysis-output directory outside the restricted dataset directory.
+
+A synthetic self-test can be run without accessing study data:
+
+```bash
+python mcphases_frozen_analysis.py --self-test
+```
+
+## Running the post hoc robustness analysis
+
+After completing the frozen Ridge analysis:
+
+```bash
+python mcphases_posthoc_robustness_checked.py --data "<PATH_TO_MCPHASES_DATA>" --ridge-results "<PATH_TO_FROZEN_RIDGE_RESULTS>"
+```
+
+A synthetic self-test is also available.
+
+## Reproducibility and privacy
+
+All model development and hyperparameter selection are restricted to the permitted Round 1 training data. Round 2 predictive performance is not used for model tuning, recalibration, or redevelopment.
+
+The analysis scripts are designed to produce aggregate research outputs and do not export participant identifiers or participant-level predictions.
+
+## License
+
+The source code in this repository is released under the MIT License.
+
+The mcPHASES dataset itself is not covered by this repository's MIT License and remains subject to the terms specified by PhysioNet.
